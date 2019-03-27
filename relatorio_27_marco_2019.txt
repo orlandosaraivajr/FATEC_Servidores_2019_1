@@ -1,0 +1,52 @@
+Alias ( Apelidos )
+
+Criar apelidos para os comandos
+como ?
+
+alias 'listar'='ls -la'
+
+'listar' => chave
+'ls -la' => valor
+==========================================
+Apelidos
+========
+Formas de inserir apelidos:
+Sessão corrente -> 
+Funciona apenas na sessão corrente
+
+Apenas para o usuário -> 
+Editar o arquivo oculto .bashrc ( localizado no diretório do usuário )
+
+Para todos os usuários do sistema -> 
+Editar o arquivo /etc/bash.bashrc ( SOMENTE O ROOT PODE )
+
+==========================================
+Variáveis de ambiente
+=====================
+
+Formas de inserir variáveis de ambiente:
+Sessão corrente -> 
+Funciona apenas na sessão corrente
+
+Apenas para o usuário -> 
+Editar o arquivo oculto .bashrc ( localizado no diretório do usuário )
+
+Para todos os usuários do sistema -> 
+Editar o arquivo /etc/bash.bashrc ( SOMENTE O ROOT PODE )
+
+
+==========================================
+Comando TAR ( é tipo um Winrar )
+
+Para compactar
+tar -cvzf compacto.tar.gz teste/
+
+Para descompactar
+tar -xvzf compacto.tar.gz 
+
+
+md5sum = Gera "uma assinatura" do arquivo. Um HASH contendo caracteres exclusivos daquele arquivo.
+
+scp <origem> <destino>
+
+
