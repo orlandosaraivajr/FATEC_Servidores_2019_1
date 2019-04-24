@@ -1,0 +1,14 @@
+Comandos
+
+top 	=> Monitorar processos no Linux
+free 	=> Monitorar consumo de memória RAM
+fdisk -l => Exibir partições do sistema operacional ( APENAS COMO ROOT )
+df	=> Disk Free. Exibe quantidade de disco livre.
+
+bmon 	=> Monitorar trafego de rede.
+iptraf-ng => Monitorar pacotes na rede.
+tcpdump	=> Criar "dumps" do trafego de rede. 
+
+	# tcpdump -i <interface> -w <arquivo.log>
+
+
