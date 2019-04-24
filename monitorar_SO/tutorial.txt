@@ -11,4 +11,54 @@ tcpdump	=> Criar "dumps" do trafego de rede.
 
 	# tcpdump -i <interface> -w <arquivo.log>
 
+Wireshark => Observar os dumps gerados pelo tcpdump
+
+lynx = "browser" para o terminal
+
+==================================================================
+
+Como instalar o Nagios
+Fonte: https://www.howtoforge.com/tutorial/install-nagios-4-3-on-debian-9/
+
+Comandos executados 
+===================
+apt update
+apt upgrade
+apt install wget unzip zip bash-completion -y
+apt install apache2 libapache2-mod-php7.0 php7.0
+
+apt-get install -y iptables-persistent
+iptables -I INPUT -p tcp --destination-port 80 -j ACCEPT
+systemctl iptables-persistent save
+systemctl iptables-persistent reload
+
+a2enmod rewrite headers cgi
+echo '<?php phpinfo(); ?>'| tee /var/www/html/info.php
+systemctl restart apache2
+
+apt install autoconf gcc libc6 make apache2-utils libgd-dev
+
+wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.4.tar.gz
+tar xzf nagios-4.3.4.tar.gz &
+cd nagios-4.3.4/
+./configure --with-httpd-conf=/etc/apache2/sites-enabled
+make all
+useradd nagios
+usermod -a -G nagios www-data
+make install
+make install-init
+systemctl enable nagios.service
+make install-commandmode
+make install-config
+make install-webconf
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+systemctl restart apache2
+systemctl start nagios
+
+
+
+
+
+
+
 
