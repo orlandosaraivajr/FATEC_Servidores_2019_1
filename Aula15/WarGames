@@ -1,0 +1,43 @@
+EQUIPE 01
+=========
+IP: 192.168.97.165
+Bloquear SSH para a equipe 3
+
+EQUIPE 02
+=========
+IP: 192.168.97.166
+Bloquear SSH para a equipe 3
+
+
+Equipe 03
+==========
+IP: 192.168.97.157
+Bloquear SSH para a equipe 1 e 2
+
+Equipe 04 - máquina real do Orlando
+=========
+IP: 192.168.97.138
+
+
+=========================================
+Para bloquear a porta 22/TCP:
+ iptables -I INPUT -s 192.168.97.157 -p tcp --dport 22 -j ACCEPT
+
+Para bloquear TODA a máquina
+iptables -A INPUT -s 192.168.97.165 -j DROP
+
+Limpar todas as regras:
+iptables -F
+
+Listar as regras
+iptables -L
+
+=========================================
+Criando uma política BEM restritiva
+
+iptables -P INPUT DROP ===> Política padrão tornou-se DROP
+iptables -A INPUT -s 192.168.97.157 -p tcp --dport 80 -j ACCEPT
+
+
+
+
